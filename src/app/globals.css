@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================================
+   NovaCore — Global Design System
+   Apple-tier minimalism with surgical precision
+   =================================================== */
+
+@layer base {
+  /* Smooth scrolling with scroll-snap behavior */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-nova-white text-nova-black font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Universal selection styling — sparingly uses accent */
+  ::selection {
+    background-color: rgba(255, 107, 0, 0.12);
+    color: #111111;
+  }
+
+  /* Fine-tune heading defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glass panel — used for navbar and elevated cards */
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Section container — enforces max-width and consistent padding */
+  .section-container {
+    @apply mx-auto w-full max-w-[1120px] px-6 sm:px-8 lg:px-6;
+  }
+
+  /* Section vertical spacing — massive breathing room */
+  .section-spacing {
+    @apply py-24 sm:py-32 lg:py-40;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full bg-nova-orange px-7 py-3.5
+           text-[0.9375rem] font-semibold text-white
+           shadow-soft
+           transition-all duration-300 ease-out
+           hover:bg-nova-orange-hover hover:shadow-soft-lg
+           hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-soft
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nova-orange/40 focus-visible:ring-offset-2;
+  }
+
+  /* Ghost / secondary CTA button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full px-7 py-3.5
+           text-[0.9375rem] font-semibold text-nova-black
+           transition-all duration-300 ease-out
+           hover:bg-nova-grey-light
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nova-black/10 focus-visible:ring-offset-2;
+  }
+
+  /* Bento card — How It Works blocks */
+  .bento-card {
+    @apply rounded-2xl bg-nova-grey-light p-8 sm:p-10
+           transition-all duration-500 ease-out
+           hover:shadow-soft-lg hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility for optional accent headings */
+  .text-gradient-nova {
+    @apply bg-gradient-to-r from-nova-orange to-amber-500 bg-clip-text text-transparent;
+  }
+
+  /* Subtle divider */
+  .divider-subtle {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-nova-black/[0.06] to-transparent;
+  }
+}
